@@ -53,7 +53,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     var checkSemanticsCommand = vscode.commands.registerCommand('tamarin.checkSemantics', () => {
         if (vscode.window.activeTextEditor){
-            let source = vscode.window.activeTextEditor.document.uri.fsPath;
+            let source = "'" + vscode.window.activeTextEditor.document.uri.fsPath + "'";
             vscode.window.activeTextEditor.document.save().then( () => {
                 let program = "tamarin-prover";
                 let args = ["--quit-on-warning", source];
